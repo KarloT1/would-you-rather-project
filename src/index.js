@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './style/index.scss';
 import App from './components/App'
-import { createStore } from 'redux'
+import { createStore, compose } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers/index'
-import middleware from './middleware';
+import middleware from './middleware/index';
 
 const store = createStore(
   reducer,
-  middleware
+  compose(
+    middleware,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 )
 
 ReactDOM.render(

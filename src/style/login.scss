@@ -1,0 +1,43 @@
+/* Login Component */
+
+.login-box {
+  border: 1px solid #D67D3E;
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+  padding: 30px;
+  background-color: #f9e4d4;
+  width: 50%;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .login-heading {
+   margin-bottom: 30px;
+   color: #470D21;
+   text-align: center;
+  }
+
+  .login-form {
+    text-align: center;
+  }
+
+  select {
+    padding: 5px;
+    border: 1px solid #D67D3E;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: #470D21;
+  }
+
+  button {
+    padding: 5px 10px;
+    display: block;
+    color: white;
+    background-color: #470D21;
+    border: 1px solid #D67D3E;
+    border-radius: 5px;
+  }
+}
