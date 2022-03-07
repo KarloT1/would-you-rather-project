@@ -1,0 +1,59 @@
+// Homepage Component
+
+@import "./colors";
+
+.home-page {
+  text-align: center;
+
+  h2 {
+    margin: 20px;
+  }
+  
+  .question {
+    &-card {
+      display: flex;
+      justify-content: center;
+      border: 1px solid $primary-dark;
+      margin: 0 auto 20px;
+      max-width: 450px;
+      border-radius: 16px;
+      box-shadow: 0 0 10px 0 $primary-light;
+    }
+    
+    &-heading {
+      padding: 20px;
+
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      img {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+      }
+    }
+    
+    &-poll {
+      padding: 20px;
+
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px;
+        color: white;
+        background-color: $primary-light;
+        border: 1px solid $primary-dark;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
