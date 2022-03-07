@@ -22,10 +22,12 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const { dispatch, setAuthedUser } = this.props
+    const { setAuthedUser } = this.props
     const authedUser = this.state.value
 
-    dispatch(setAuthedUser(authedUser))
+    new Promise((res, rej) => {
+      setTimeout(() => res(), 500)
+    }).then(() => setAuthedUser(authedUser))
   }
 
   render() {
@@ -34,8 +36,8 @@ class Login extends Component {
     return (
       <div className="login-box">
         <div className="login-heading">
-          <h2>Would You Rather Game</h2>
-          <h4>Please sign in to continue.</h4>
+          <h1>Would You Rather Game</h1>
+          <h3>Please sign in to continue.</h3>
         </div>
           
         <form onSubmit={this.handleSubmit} className="login-form">
@@ -43,7 +45,12 @@ class Login extends Component {
           <option disabled value="select">Select your profile</option>
             {
               users.map(user => (
-                <option value={user.id}>{user.name}</option>
+                <option 
+                  key={user.id} 
+                  value={user.id}
+                >
+                  {user.name}
+                </option>
               ))
             }
           </select>

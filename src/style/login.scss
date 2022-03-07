@@ -21,23 +21,26 @@
   }
 
   .login-form {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 
   select {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #D67D3E;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #470D21;
+    font-size: 1rem;
   }
 
   button {
-    padding: 5px 10px;
-    display: block;
+    padding: 10px;
     color: white;
     background-color: #470D21;
     border: 1px solid #D67D3E;
     border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
   }
 }
