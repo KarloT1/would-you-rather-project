@@ -17,13 +17,16 @@ class App extends Component {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <LoadingBar />
           <div className="app">
             { authedUser === null 
             ? <Login />
-            : <Routes>
-                <Route exact path="/" element={ <Home /> } />
-              </Routes>
+            : <React.Fragment>
+                <LoadingBar />
+                <Nav />
+                <Routes>
+                  <Route exact path="/" element={ <Home /> } />
+                </Routes>
+              </React.Fragment>
             }
           </div>
         </React.Fragment>

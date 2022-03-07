@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
+import logo from '../assets/images/wyr-logo.png'
 
 class Login extends Component {
   constructor(props) {
@@ -36,8 +37,8 @@ class Login extends Component {
     return (
       <div className="login-box">
         <div className="login-heading">
-          <h1>Would You Rather Game</h1>
-          <h3>Please sign in to continue.</h3>
+          <img src={logo} alt="Game logo." />
+          <h2>Please sign in to continue.</h2>
         </div>
           
         <form onSubmit={this.handleSubmit} className="login-form">
@@ -54,7 +55,10 @@ class Login extends Component {
               ))
             }
           </select>
-          <button type="submit">Sign in</button>
+          {this.state.value === "select" && (
+            <p>Please select a profile to sign in.</p>
+          )}
+          <button type="submit" className={`${this.state.value === "select" ? "disabled" : ""}`} disabled={this.state.value === "select"}>Sign in</button>
         </form>        
       </div>
     )

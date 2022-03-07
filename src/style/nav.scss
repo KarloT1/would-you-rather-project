@@ -1,0 +1,55 @@
+.nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 1200px;
+	margin: 0 auto;
+	border-bottom: 1px solid #470D21;
+	padding: 15px;
+
+	&-options {
+		display: flex;
+		align-items: center;
+
+		a {
+			padding: 15px;
+			text-decoration: none;
+			color: #470D21;
+		}
+
+		.active {
+			font-weight: bold;
+			transform: scale(1.3);
+		}
+	}
+
+	&-logout {
+		display: flex;
+		align-items: center;
+
+		p {
+			padding: 15px;
+		}
+
+		img {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			box-shadow: 0 0 5px 0;
+		}
+
+		button {
+			padding: 10px;
+			color: white;
+			background-color: #470D21;
+			border: 1px solid #D67D3E;
+			border-radius: 5px;
+			font-size: 1rem;
+			font-weight: bold;
+		}
+
+		svg {
+			margin-left: 10px;
+		}
+	}
+}

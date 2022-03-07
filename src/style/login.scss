@@ -7,7 +7,7 @@
   position: relative;
   padding: 30px;
   background-color: #f9e4d4;
-  width: 50%;
+  max-width: 600px;
   top: 100px;
   display: flex;
   justify-content: center;
@@ -18,11 +18,25 @@
    margin-bottom: 30px;
    color: #470D21;
    text-align: center;
+   border-bottom: 1px solid #D67D3E;
+   padding-bottom: 30px;
+   width: 100%;
+  
+  img {
+     margin-bottom: 20px;
+     width: 350px;
+   }
   }
 
   .login-form {
     display: flex;
     flex-direction: column;
+
+    p {
+      color: #470D21;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
   }
 
   select {
@@ -42,5 +56,10 @@
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
+
+    &.disabled {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
   }
 }
