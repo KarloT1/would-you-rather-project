@@ -1,12 +1,14 @@
 /* Login Component */
 
+@import "./colors.scss";
+
 .login-box {
-  border: 1px solid #D67D3E;
+  border: 1px solid $primary-dark;
   border-radius: 20px;
   margin: 0 auto;
   position: relative;
   padding: 30px;
-  background-color: #f9e4d4;
+  background-color: #E5E3C9;
   max-width: 600px;
   top: 100px;
   display: flex;
@@ -16,9 +18,9 @@
 
   .login-heading {
    margin-bottom: 30px;
-   color: #470D21;
+   color: #789395;
    text-align: center;
-   border-bottom: 1px solid #D67D3E;
+   border-bottom: 1px solid $primary-dark;
    padding-bottom: 30px;
    width: 100%;
   
@@ -33,7 +35,7 @@
     flex-direction: column;
 
     p {
-      color: #470D21;
+      color: $primary-dark;
       font-weight: bold;
       margin-bottom: 20px;
     }
@@ -41,18 +43,18 @@
 
   select {
     padding: 10px;
-    border: 1px solid #D67D3E;
+    border: 1px solid $primary-dark;
     border-radius: 5px;
     margin-bottom: 30px;
-    color: #470D21;
+    color: $primary-dark;
     font-size: 1rem;
   }
 
   button {
     padding: 10px;
     color: white;
-    background-color: #470D21;
-    border: 1px solid #D67D3E;
+    background-color: $primary-light;
+    border: 1px solid $primary-dark;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
