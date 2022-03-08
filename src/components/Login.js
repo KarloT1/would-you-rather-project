@@ -56,7 +56,7 @@ class Login extends Component {
             }
           </select>
           {this.state.value === "select" && (
-            <p>Please select a profile to sign in.</p>
+            <p>Please select your profile to sign in.</p>
           )}
           <button type="submit" className={`${this.state.value === "select" ? "disabled" : ""}`} disabled={this.state.value === "select"}>Sign in</button>
         </form>        

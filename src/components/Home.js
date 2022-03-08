@@ -4,36 +4,79 @@ import Poll from './Poll'
 import QuestionCard from './QuestionCard'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      changeTab: "unanswered"
+    }
+
+    this.handleAnswered = this.handleAnswered.bind(this)
+    this.handleUnanswered = this.handleUnanswered.bind(this)
+  }
+
+  handleAnswered() {
+    this.setState({
+      changeTab: "answered"
+    })
+  }
+
+  handleUnanswered() {
+    this.setState({
+      changeTab: "unanswered"
+    })
+  }
+
   render() {
     const { usersQuestions } = this.props
 
     return (
       <div className="home-page">
-          <h2>Unanswered</h2>
-          {usersQuestions.unanswered.map(question => (
-            <QuestionCard
-              key={question.id}
-              userId={question.author}
-            >
-            <Poll
-              question={question}
-              unanswered={true}
-            />
-            </QuestionCard>
-          ))}
-        <hr/>
-          <h2>Answered</h2>
-            {usersQuestions.answered.map(question => (
-              <QuestionCard
-                key={question.id}
-                userId={question.author}
-              >
-              <Poll
-                question={question}
-                unanswered={false}
-              />
-              </QuestionCard>
-            ))}
+        <div className="home-page-tab">
+          <div className="home-page-tab-buttons">
+            <a 
+              onClick={this.handleUnanswered}
+              className={this.state.changeTab === "unanswered" ? "active-tab" : ""}
+            >Unanswered
+            </a>
+            <a 
+              onClick={this.handleAnswered}
+              className={this.state.changeTab === "answered" ? "active-tab" : ""}
+            >Answered
+            </a>
+          </div>
+          <div className="home-page-tabs">  
+            {
+              this.state.changeTab === "unanswered" && (
+                usersQuestions.unanswered.map(question => (
+                  <QuestionCard
+                    key={question.id}
+                    userId={question.author}
+                  >
+                  <Poll
+                    question={question}
+                    unanswered={true}
+                  />
+                  </QuestionCard>
+                ))
+              )
+            }
+            {
+              this.state.changeTab === "answered" && (
+                usersQuestions.answered.map(question => (
+                  <QuestionCard
+                    key={question.id}
+                    userId={question.author}
+                  >
+                  <Poll
+                    question={question}
+                    unanswered={false}
+                  />
+                  </QuestionCard>
+                ))
+              )
+            }
+          </div>
+        </div>
       </div>
     )
   }
