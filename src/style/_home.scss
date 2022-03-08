@@ -19,13 +19,14 @@
   &-tab-buttons {
     display: flex;
 
-    a {
+    button {
       width: 50%;
       padding: 20px;
 
       &.active-tab {
         font-weight: bold;
         background-color: $primary-light;
+        border: none;
       }
     }
   }

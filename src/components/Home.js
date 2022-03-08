@@ -33,16 +33,16 @@ class Home extends Component {
       <div className="home-page">
         <div className="home-page-tab">
           <div className="home-page-tab-buttons">
-            <a 
+            <button 
               onClick={this.handleUnanswered}
               className={this.state.changeTab === "unanswered" ? "active-tab" : ""}
             >Unanswered
-            </a>
-            <a 
+            </button>
+            <button 
               onClick={this.handleAnswered}
               className={this.state.changeTab === "answered" ? "active-tab" : ""}
             >Answered
-            </a>
+            </button>
           </div>
           <div className="home-page-tabs">  
             {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Navigate } from 'react-router-dom'
 
 class Poll extends Component {
   constructor(props) {
@@ -7,6 +8,8 @@ class Poll extends Component {
     this.state = {
       viewPoll: false
     }
+
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick() {
@@ -18,6 +21,10 @@ class Poll extends Component {
   render() {
     const { question, unanswered } = this.props
 
+    if (this.state.viewPoll === true) {
+      return <Navigate push to={`/questions/${question.id}`} />
+    }
+
     return (
       <React.Fragment>
         <h3>Would you rather</h3>
@@ -26,7 +33,7 @@ class Poll extends Component {
           <br/>
           or ...
         </p>
-        <button>{unanswered === true ? "Answer Poll" : "Results"}</button>
+        <button onClick={this.handleClick}>{unanswered === true ? "Answer Poll" : "Results"}</button>
       </React.Fragment>
     )
   }
