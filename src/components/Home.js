@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Poll from './Poll'
+import PollPreview from './PollPreview'
 import QuestionCard from './QuestionCard'
 
 class Home extends Component {
@@ -52,7 +52,7 @@ class Home extends Component {
                     key={question.id}
                     userId={question.author}
                   >
-                  <Poll
+                  <PollPreview
                     question={question}
                     unanswered={true}
                   />
@@ -67,7 +67,7 @@ class Home extends Component {
                     key={question.id}
                     userId={question.author}
                   >
-                  <Poll
+                  <PollPreview
                     question={question}
                     unanswered={false}
                   />

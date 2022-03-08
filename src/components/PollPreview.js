@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navigate } from 'react-router-dom'
 
-class Poll extends Component {
+class PollPreview extends Component {
   constructor(props) {
     super(props)
     
@@ -39,4 +39,4 @@ class Poll extends Component {
   }
 }
 
-export default Poll
+export default PollPreview
