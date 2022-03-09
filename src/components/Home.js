@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PollPreview from './PollPreview'
 import QuestionCard from './QuestionCard'
 
 class Home extends Component {
@@ -50,13 +49,9 @@ class Home extends Component {
                 usersQuestions.unanswered.map(question => (
                   <QuestionCard
                     key={question.id}
-                    userId={question.author}
-                  >
-                  <PollPreview
-                    question={question}
+                    question_id={question.id}
                     unanswered={true}
                   />
-                  </QuestionCard>
                 ))
               )
             }
@@ -65,13 +60,9 @@ class Home extends Component {
                 usersQuestions.answered.map(question => (
                   <QuestionCard
                     key={question.id}
-                    userId={question.author}
-                  >
-                  <PollPreview
-                    question={question}
+                    question_id={question.id}
                     unanswered={false}
                   />
-                  </QuestionCard>
                 ))
               )
             }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class PollPreview extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class PollPreview extends Component {
     const { question, unanswered } = this.props
 
     if (this.state.viewPoll === true) {
-      return <Navigate push to={`/questions/${question.id}`} />
+      return <Redirect push to={`/questions/${question.id}`} />
     }
 
     return (

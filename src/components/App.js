@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
 import { connect } from 'react-redux'
 import Login from './Login'
 import Nav from './Nav'
 import Home from './Home'
 import { LoadingBar } from 'react-redux-loading-bar'
+import QuestionCard from './QuestionCard'
+import NewPoll from './NewPoll'
+import Error404 from './Error404'
 
 class App extends Component {
   componentDidMount() {
@@ -23,9 +26,12 @@ class App extends Component {
             : <React.Fragment>
                 <LoadingBar />
                 <Nav />
-                <Routes>
-                  <Route exact path="/" element={ <Home /> } />
-                </Routes>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/questions/bad_id" component={Error404} />
+                  <Route path="/questions/:question_id" component={QuestionCard} />
+                  <Route path="/new" component={NewPoll} />
+                </Switch>
               </React.Fragment>
             }
           </div>
