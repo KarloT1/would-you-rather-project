@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Nav from './Nav'
 import Home from './Home'
-import { LoadingBar } from 'react-redux-loading-bar'
 import QuestionCard from './QuestionCard'
 import NewPoll from './NewPoll'
 import Error404 from './Error404'
@@ -24,7 +23,6 @@ class App extends Component {
             { authedUser === null 
             ? <Login />
             : <React.Fragment>
-                <LoadingBar />
                 <Nav />
                 <Switch>
                   <Route exact path="/" component={Home} />
