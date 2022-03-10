@@ -54,14 +54,16 @@ class NewPoll extends Component {
     }
 
     return (
-      <React.Fragment>
-        <h3>Create a New Poll</h3>
-        {this.state.isLoading && (
-          <p>Loading...</p>
-        )}
-        <p>Complete the question:</p>
-        <p>Would you rather...</p>
-        <form onSubmit={this.handleSubmit}>
+      <div className="new-poll">
+        <div className="new-poll-heading">
+          <h3>Create a New Poll</h3>
+          {this.state.isLoading && (
+            <p>Loading...</p>
+          )}
+          <p>Complete the question:</p>
+          <p>Would you rather...</p>
+        </div>
+        <form onSubmit={this.handleSubmit} className="new-poll-form">
           <input
             type="text"
             name="option1"
@@ -81,7 +83,7 @@ class NewPoll extends Component {
             Submit your Poll
           </button>
         </form>
-      </React.Fragment>
+      </div>
     )
   }
 }

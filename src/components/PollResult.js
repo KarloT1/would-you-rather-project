@@ -3,10 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const YourVoteLabel = () => (
-  <div style={{height: 100, width: 100, backgroundColor: "red"}}>
-    YOUR
-    <br/>
-    VOTE
+  <div style={{backgroundColor: "red"}}>
+    YOUR VOTE
   </div>
 )
 
@@ -28,16 +26,16 @@ class PollResult extends Component {
 
         <div>
           {userVote === "optionOne" && <YourVoteLabel />}
-          <p>{question.optionOne.text}</p>
-          <progress value={((optionOneVotes / votesTotal) * 100).toFixed(2)}>
+          <label for="optionOne">{question.optionOne.text}</label>
+          <progress value={((optionOneVotes / votesTotal) * 100).toFixed(2)} max="100" id="optionOne">
             {optionOneVotes} out of {votesTotal} votes
           </progress>
         </div>
 
         <div>
           {userVote === "optionTwo" && <YourVoteLabel />}
-          <p>{question.optionTwo.text}</p>
-          <progress value={((optionTwoVotes / votesTotal) * 100).toFixed(2)}>
+          <label for="optionTwo">{question.optionTwo.text}</label>
+          <progress value={((optionTwoVotes / votesTotal) * 100).toFixed(2)} max="100" id="optionTwo">
             {optionTwoVotes} out of {votesTotal} votes
           </progress>
         </div>

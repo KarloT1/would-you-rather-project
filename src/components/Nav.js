@@ -16,7 +16,7 @@ class Nav extends Component {
 		return (
 			<div className="nav">
 				<div className="nav-options">
-					<NavLink to="/" >Home</NavLink>
+					<NavLink exact to="/" >Home</NavLink>
 					<NavLink to="/new">New Poll</NavLink>
 					<NavLink to="/leaderboard">Leaderboard</NavLink>
 				</div>

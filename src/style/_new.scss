@@ -1,0 +1,54 @@
+// New Poll Component
+
+@import "./colors";
+
+.new-poll {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid $primary-dark;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 $primary-light;
+  background-color: #fff;
+
+  &-heading {
+    border-bottom: 1px solid $primary-dark;
+    padding: 10px 0;
+
+    h3 {
+      margin-bottom: 30px;
+    }
+  
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+
+    input {
+      margin: 20px;
+      padding: 10px;
+      max-width: 300px;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px;
+      color: white;
+      background-color: $primary-light;
+      border: 1px solid $primary-dark;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  }
+}
