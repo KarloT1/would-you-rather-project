@@ -8,6 +8,7 @@ import Home from './Home'
 import QuestionCard from './QuestionCard'
 import NewPoll from './NewPoll'
 import Error404 from './Error404'
+import Leaderboard from './Leaderboard'
 
 class App extends Component {
   componentDidMount() {
@@ -29,6 +30,7 @@ class App extends Component {
                   <Route path="/questions/bad_id" component={Error404} />
                   <Route path="/questions/:question_id" component={QuestionCard} />
                   <Route path="/new" component={NewPoll} />
+                  <Route path="/leaderboard" component={Leaderboard} />
                 </Switch>
               </React.Fragment>
             }
