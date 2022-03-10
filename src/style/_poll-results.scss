@@ -1,0 +1,73 @@
+// Poll Results Component 
+
+.poll-results {
+  padding: 0 20px;
+  width: 70%;
+  
+  &-heading {
+    margin-bottom: 10px;
+    text-align: left;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-content {
+    padding: 20px 10px;
+    border: 1px solid $primary-dark;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    p {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .progress {
+      background-color: #fefefe;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      height: 20px;
+      width: 100%;
+      margin-bottom: 15px;
+
+      .bar {
+        background: -webkit-linear-gradient(to bottom, $primary-dark, $primary-light);
+        background: linear-gradient(to bottom, $primary-dark, $primary-light);
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+        height: 20px;
+        transition: width 0.5s ease-in;
+      }
+    }
+
+    .badge {
+      background-color: #B4CFB0;
+      position: absolute;
+      right: -15px;
+      top: 10px;
+      padding: 5px;
+      color: white;
+      font-weight: bold;
+      border-top-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  &-button {
+    margin-top: 10px;
+
+    button {
+      padding: 10px;
+      color: white;
+      background-color: $primary-light;
+      border: 1px solid $primary-dark;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}

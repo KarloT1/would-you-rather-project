@@ -40,13 +40,13 @@ class QuestionCard extends Component {
 					<h3>{author.name} asks:</h3>
 					<img src={author.avatarURL} alt="User avatar." />
 				</div>
-				<div className="question-poll">
+				<React.Fragment>
 					<PollContent
 						pollType={pollType}
 						question={question}
 						unanswered={unanswered}
 					/>
-				</div>
+				</React.Fragment>
 			</div>
 		)
 	}

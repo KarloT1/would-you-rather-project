@@ -33,7 +33,7 @@ class PollQuestion extends Component {
     const disabled = this.state.value === "" ? true : false
 
     return (
-      <React.Fragment>
+      <div className="poll-question">
         <h5>Would you rather</h5>
         <form onSubmit={this.handleSubmit}>
 
@@ -56,7 +56,7 @@ class PollQuestion extends Component {
             Submit your answer
           </button>
         </form>
-      </React.Fragment>
+      </div>
     )
   }
 }

@@ -1,8 +1,11 @@
 @import "./login.scss";
 @import "./nav.scss";
 @import "./home";
-@import "./question-card";
 @import "./new";
+@import "./question-card";
+@import "./poll-results";
+@import "./poll-preview";
+@import "./poll-question";
 
 * {
   margin: 0;

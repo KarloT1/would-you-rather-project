@@ -26,7 +26,7 @@ class PollPreview extends Component {
     }
 
     return (
-      <React.Fragment>
+      <div className="poll-preview">
         <h3>Would you rather</h3>
         <p>
           {question.optionOne.text}
@@ -34,7 +34,7 @@ class PollPreview extends Component {
           or ...
         </p>
         <button onClick={this.handleClick}>{unanswered === true ? "Answer Poll" : "Results"}</button>
-      </React.Fragment>
+      </div>
     )
   }
 }

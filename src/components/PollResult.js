@@ -3,15 +3,17 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const YourVoteLabel = () => (
-  <div style={{backgroundColor: "red"}}>
+  <div className="badge">
     YOUR VOTE
   </div>
 )
 
 class PollResult extends Component {
+  
   handleClick = () => {
     this.props.history.push("/")
   }
+
   render() {
     const { question, user } = this.props
     const optionOneVotes = question.optionOne.votes.length
@@ -20,27 +22,37 @@ class PollResult extends Component {
     const userVote = user.answers[question.id]
 
     return (
-      <React.Fragment>
-        <h2>Results:</h2>
-        <h4>Would you rather</h4>
+      <div className="poll-results">
+        <div className="poll-results-heading">
+          <h3>Results:</h3>
+          <h4>Would you rather</h4>
+        </div>
 
-        <div>
+        <div className="poll-results-content">
           {userVote === "optionOne" && <YourVoteLabel />}
-          <label for="optionOne">{question.optionOne.text}</label>
-          <progress value={((optionOneVotes / votesTotal) * 100).toFixed(2)} max="100" id="optionOne">
-            {optionOneVotes} out of {votesTotal} votes
-          </progress>
+          <p>{question.optionOne.text}</p>
+          <div className="progress">
+            <div className="bar" style={{width: ((optionOneVotes / votesTotal) * 100) + "%"}}>
+              { ((optionOneVotes / votesTotal) * 100) + "%" }
+            </div>
+          </div>
+          <p>{optionOneVotes} out of {votesTotal} votes</p>
         </div>
 
-        <div>
+        <div className="poll-results-content">
           {userVote === "optionTwo" && <YourVoteLabel />}
-          <label for="optionTwo">{question.optionTwo.text}</label>
-          <progress value={((optionTwoVotes / votesTotal) * 100).toFixed(2)} max="100" id="optionTwo">
-            {optionTwoVotes} out of {votesTotal} votes
-          </progress>
+          <p>{question.optionTwo.text}</p>
+          <div className="progress">
+            <div className="bar" style={{width: ((optionTwoVotes / votesTotal) * 100) + "%"}}>
+            { ((optionTwoVotes / votesTotal) * 100) + "%" }
+            </div>
+          </div>
+          <p>{optionTwoVotes} out of {votesTotal} votes</p>
         </div>
-        <button onClick={this.handleClick}>Back</button>
-      </React.Fragment>
+        <div className="poll-results-button">
+          <button onClick={this.handleClick}>Back</button>
+        </div>
+      </div>
     )
   }
 }
