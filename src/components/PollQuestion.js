@@ -34,25 +34,30 @@ class PollQuestion extends Component {
 
     return (
       <div className="poll-question">
-        <h5>Would you rather</h5>
-        <form onSubmit={this.handleSubmit}>
+        <h3>Would you rather</h3>
+        <form onSubmit={this.handleSubmit} className="poll-question-form">
 
-          <label>{question.optionOne.text}</label>
-          <input 
-            type="radio"
-            value="optionOne"
-            checked={this.state.value === "optionOne"}
-            onChange={this.handleChange}
-          />
+          <div className="poll-question-input">
+            <input 
+              type="radio"
+              value="optionOne"
+              checked={this.state.value === "optionOne"}
+              onChange={this.handleChange}
+            />
+            <label>{question.optionOne.text}</label>
+          </div>
 
-          <label>{question.optionTwo.text}</label>
-          <input
-            type="radio"
-            value="optionTwo"
-            checked={this.state.value === "optionTwo"}
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={disabled}>
+          <div className="poll-question-input">
+            <input
+              type="radio"
+              value="optionTwo"
+              checked={this.state.value === "optionTwo"}
+              onChange={this.handleChange}
+            />
+            <label>{question.optionTwo.text}</label>
+          </div>
+
+          <button type="submit" className={`${this.state.value ? "" : "disabled"}`} disabled={disabled}>
             Submit your answer
           </button>
         </form>
