@@ -24,4 +24,4 @@ Run the project using:
 
 View the project inside your prefered browser at
 
-- [https://localhost:3000]
+- `https://localhost:3000`
