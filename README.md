@@ -12,7 +12,7 @@ using NPM.
 
 ```bash
 $ git clone https://github.com/KarloT1/would-you-rather-project.git
-$ cd reactnd-project-would-you-rather
+$ cd would-you-rather-project
 $ npm install
 ```
 
