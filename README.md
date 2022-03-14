@@ -1,7 +1,7 @@
 # Would you rather Game
 
 Would you rather is a game in which user decides
-between two give answers.
+between two given answers.
 It is built using React and Redux as state management tool.
 It is made as the last required project of Udacity's React Nanodegree program.
 

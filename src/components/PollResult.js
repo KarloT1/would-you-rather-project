@@ -33,7 +33,7 @@ class PollResult extends Component {
           <p>{question.optionOne.text}</p>
           <div className="progress">
             <div className="bar" style={{width: ((optionOneVotes / votesTotal) * 100) + "%"}}>
-              { ((optionOneVotes / votesTotal) * 100) + "%" }
+              { ((optionOneVotes / votesTotal) * 100).toFixed(2) + "%" }
             </div>
           </div>
           <p>{optionOneVotes} out of {votesTotal} votes</p>
@@ -44,7 +44,7 @@ class PollResult extends Component {
           <p>{question.optionTwo.text}</p>
           <div className="progress">
             <div className="bar" style={{width: ((optionTwoVotes / votesTotal) * 100) + "%"}}>
-            { ((optionTwoVotes / votesTotal) * 100) + "%" }
+            { ((optionTwoVotes / votesTotal) * 100).toFixed(2) + "%" }
             </div>
           </div>
           <p>{optionTwoVotes} out of {votesTotal} votes</p>

@@ -19,6 +19,10 @@
 			padding: 15px;
 			text-decoration: none;
 			color: $primary-dark;
+
+			@media (max-width: 700px) {
+				font-size: 12px;
+			}
 		}
 
 		.active {
@@ -34,6 +38,10 @@
 		p {
 			padding: 15px;
 			color: $primary-dark;
+
+			@media (max-width: 700px) {
+				font-size: 12px;
+			}
 		}
 
 		img {
@@ -51,6 +59,10 @@
 			border-radius: 5px;
 			font-size: 1rem;
 			font-weight: bold;
+
+			@media (max-width: 700px) {
+				font-size: 12px;
+			}
 		}
 
 		svg {
