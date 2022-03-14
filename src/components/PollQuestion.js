@@ -66,7 +66,7 @@ class PollQuestion extends Component {
   }
 }
 
-function mapStateToProps({ authedUser }, { match }) {
+function mapStateToProps({ authedUser }) {
   return {
     authedUser
   }

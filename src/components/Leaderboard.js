@@ -44,7 +44,7 @@ function mapStateToProps({ users }) {
       questionSum: user.questions.length,
       totalSum: Object.values(user.answers).length + user.questions.length
     }))
-    .sort((a, b) => a.total - b.total)
+    .sort((a, b) => a.totalSum - b.totalSum)
     .reverse()
     .slice(0, 3)
 
