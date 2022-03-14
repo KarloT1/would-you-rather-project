@@ -1,0 +1,22 @@
+// Error Component
+
+@import "./colors";
+
+.error-404 {
+  max-width: 550px;
+  margin: 30px auto 0;
+  padding: 40px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  background-color: #fff;
+
+  h2 {
+    margin-bottom: 30px;
+    color: $primary-dark;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

@@ -31,6 +31,7 @@ class App extends Component {
                   <Route path="/questions/:question_id" component={QuestionCard} />
                   <Route path="/new" component={NewPoll} />
                   <Route path="/leaderboard" component={Leaderboard} />
+                  <Route component={Error404} />
                 </Switch>
               </React.Fragment>
             }
