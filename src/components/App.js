@@ -27,8 +27,8 @@ class App extends Component {
                 <Nav />
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/questions/bad_id" component={Error404} />
                   <Route path="/questions/:question_id" component={QuestionCard} />
+                  <Route path="/question/wrongId" component={Error404} />
                   <Route path="/new" component={NewPoll} />
                   <Route path="/leaderboard" component={Leaderboard} />
                   <Route component={Error404} />

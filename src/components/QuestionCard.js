@@ -5,50 +5,35 @@ import PollQuestion from './PollQuestion'
 import PollResult from './PollResult'
 import PollPreview from './PollPreview'
 
-const pollTypes = {
-	POLL_PREVIEW: "POLL_PREVIEW",
-	POLL_QUESTION: "POLL_QUESTION",
-	POLL_RESULT: "POLL_RESULT"
-}
-
-const PollContent = props => {
-	const { pollType, question, unanswered } = props
-
-	switch(pollType) {
-		case pollTypes.POLL_PREVIEW:
-			return <PollPreview question={question} unanswered={unanswered} />
-		case pollTypes.POLL_QUESTION:
-			return <PollQuestion question={question} />
-		case pollTypes.POLL_RESULT:
-			return <PollResult question={question} />
-		default:
-			return
-	}
-}
-
 class QuestionCard extends Component {
 	render() {
-		const { author, question, pollType, badPath, unanswered = null } = this.props
+		const { author, question, pollComponent, unanswered = null, wrongId } = this.props
 
-		if(badPath === true) {
-			return <Redirect to="/questions/bad_id" />
+		if (wrongId) {
+			<Redirect to="/question/wrongId" />
 		}
-
 		return (
 			<div className="question-card">
 				<div className="question-heading">
 					<h3>{author.name} asks:</h3>
 					<img src={author.avatarURL} alt="User avatar." />
 				</div>
-				<React.Fragment>
-					<PollContent
-						pollType={pollType}
-						question={question}
-						unanswered={unanswered}
-					/>
-				</React.Fragment>
+				{
+					pollComponent === "pollPreview"
+					? (
+						<PollPreview question={question} unanswered={unanswered} />
+					) : [
+						pollComponent === "pollQuestion"
+						? (
+							<PollQuestion question={question} />
+						) : (
+							<PollResult question={question} />
+						)
+					]
+				}
 			</div>
 		)
+
 	}
 }
 
@@ -58,33 +43,33 @@ function mapStateToProps(
 ) {
 	let question,
 		author,
-		pollType,
-		badPath = false;
+		pollComponent,
+		wrongId = false
 	if (question_id !== undefined) {
 		question = questions[question_id]
 		author = users[question.author]
-		pollType = pollTypes.POLL_PREVIEW
+		pollComponent = "pollPreview"
 	} else {
 		const { question_id } = match.params
 		question = questions[question_id]
 		const user = users[authedUser]
 
 		if (question === undefined) {
-			badPath = true
+			wrongId = true
 		} else {
 			author = users[question.author]
-			pollType = pollTypes.POLL_QUESTION
+			pollComponent = "pollQuestion"
 			if (Object.keys(user.answers).includes(question_id)) {
-				pollType = pollTypes.POLL_RESULT
+				pollComponent = "pollResult"
 			}
 		}
 	}
 
 	return {
-		badPath,
 		question,
 		author,
-		pollType
+		pollComponent,
+		wrongId
 	}
 }
 
