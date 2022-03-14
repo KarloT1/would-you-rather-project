@@ -9,9 +9,10 @@ class QuestionCard extends Component {
 	render() {
 		const { author, question, pollComponent, unanswered = null, wrongId } = this.props
 
-		if (wrongId) {
+		if (wrongId === true) {
 			<Redirect to="/question/wrongId" />
 		}
+		
 		return (
 			<div className="question-card">
 				<div className="question-heading">
@@ -33,7 +34,6 @@ class QuestionCard extends Component {
 				}
 			</div>
 		)
-
 	}
 }
 
@@ -41,28 +41,30 @@ function mapStateToProps(
 	{ users, questions, authedUser },
 	{ match, question_id}
 ) {
-	let question,
-		author,
-		pollComponent,
-		wrongId = false
-	if (question_id !== undefined) {
-		question = questions[question_id]
-		author = users[question.author]
-		pollComponent = "pollPreview"
-	} else {
-		const { question_id } = match.params
+
+	let question;
+	let author;
+	let pollComponent;
+
+	if (question_id === undefined) {
+		const question_id = match.params.question_id
 		question = questions[question_id]
 		const user = users[authedUser]
 
 		if (question === undefined) {
-			wrongId = true
+			var wrongId = true
 		} else {
 			author = users[question.author]
 			pollComponent = "pollQuestion"
-			if (Object.keys(user.answers).includes(question_id)) {
+			const usersAnswers = Object.keys(user.answers)
+			if (usersAnswers.includes(question_id)) {
 				pollComponent = "pollResult"
 			}
 		}
+	} else {
+		question = questions[question_id]
+		author = users[question.author]
+		pollComponent = "pollPreview"
 	}
 
 	return {
