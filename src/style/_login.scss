@@ -3,14 +3,10 @@
 @import "./colors.scss";
 
 .login-box {
-  border: 1px solid $primary-dark;
-  border-radius: 5px;
-  margin: 0 auto;
   position: relative;
   padding: 30px;
   background-color: #E5E3C9;
-  max-width: 600px;
-  top: 100px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
