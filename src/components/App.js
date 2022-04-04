@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Nav from './Nav'
 import Home from './Home'
-import QuestionCard from './QuestionCard'
+import PollBox from './PollBox'
 import NewPoll from './NewPoll'
 import Error404 from './Error404'
 import Leaderboard from './Leaderboard'
@@ -27,7 +27,7 @@ class App extends Component {
                 <Nav />
                 <Switch>
                   <Route exact path="/" component={Home} />
-                  <Route path="/questions/:question_id" component={QuestionCard} />
+                  <Route path="/questions/:question_id" component={PollBox} />
                   <Route path="/question/wrongId" component={Error404} />
                   <Route path="/new" component={NewPoll} />
                   <Route path="/leaderboard" component={Leaderboard} />

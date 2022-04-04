@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import QuestionCard from './QuestionCard'
+import Answered from './Answered'
+import Unanswered from './Unanswered'
 
 class Home extends Component {
   constructor(props) {
@@ -26,7 +26,6 @@ class Home extends Component {
   }
 
   render() {
-    const { usersQuestions } = this.props
 
     return (
       <div className="home-page">
@@ -46,24 +45,12 @@ class Home extends Component {
           <div className="home-page-tabs">  
             {
               this.state.changeTab === "unanswered" && (
-                usersQuestions.unanswered.map(question => (
-                  <QuestionCard
-                    key={question.id}
-                    question_id={question.id}
-                    unanswered={true}
-                  />
-                ))
+                <Unanswered />
               )
             }
             {
               this.state.changeTab === "answered" && (
-                usersQuestions.answered.map(question => (
-                  <QuestionCard
-                    key={question.id}
-                    question_id={question.id}
-                    unanswered={false}
-                  />
-                ))
+                <Answered />
               )
             }
           </div>
@@ -73,21 +60,4 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }) {
-  const answeredIds = Object.keys(users[authedUser].answers)
-  const answered = Object.values(questions)
-    .filter(question => answeredIds.includes(question.id))
-    .sort((a, b) => b.timestamp - a.timestamps)
-  const unanswered = Object.values(questions)
-    .filter(question => !answeredIds.includes(question.id))
-    .sort((a, b) => b.timestamp - a.timestamp)
-  
-  return {
-    usersQuestions: {
-      answered, 
-      unanswered
-    }
-  }
-}
-
-export default connect(mapStateToProps)(Home)
+export default Home
